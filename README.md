@@ -4,17 +4,27 @@ HRequest is a Winamp General Plugin that allows requesting songs through a websi
 
 If you require remote controls or wish to let friends choose what they would like to listen then this is for you.
 
-This project is very old, but due to a recent request I decided to publish the source code before it gets lost forever.
+![screenshot](https://user-images.githubusercontent.com/7905726/156252519-2865455c-3a05-4757-b1db-24e012130d10.png)
+
+This project is very old, but due to a recent request I decided to publish the source code before it gets lost forever. It was rewritten from scratch, the old version had a blue interface.
 
 ## Installation Instructions:
 
-Copy the `gen_hrequest.dll` file into `C:\Program Files (x86)\Winamp\Plugins`.
+Copy the `gen_hrequest.dll` file [download here](https://github.com/Henry00IS/HRequest/raw/master/build/gen_hrequest.dll) into `C:\Program Files (x86)\Winamp\Plugins`.
 
-By default the website is accessible at http://127.0.0.1:8080/ and can be changed using the `HRequestConfig.exe` program.
+By default the website is accessible at http://127.0.0.1:8080/ and can be changed using the `HRequestConfig.exe` [download here](https://github.com/Henry00IS/HRequest/raw/master/build/HRequestConfig.exe) program.
 
 ## Usage Instructions:
 
-When you start Winamp you will eventually hear a loud beep, the website can be opened. Song requests will also be confirmed with a beep. Changing the playlist requires a restart of Winamp.
+When you start Winamp you will eventually hear a loud beep, the website can now be opened.
+
+Song requests will also be confirmed with a beep.
+
+Changing the playlist requires a restart of Winamp.
+
+## References:
+
+https://winampheritage.com/plugin/hrequest-winamp-request-plugin/222638
 
 ## Donations:
 
