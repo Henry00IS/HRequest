@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HRequest</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/hover-min.css">
+		<link rel="stylesheet" href="css/ladda-themeless.min.css">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/hrequest.js"></script>
+		<script src="js/spin.min.js"></script>
+		<script src="js/ladda.min.js"></script>
+
+		<style>
+			body {background: black; color: white; left: 0; right: 0; top: 0; bottom: 0;}
+			.hr-nav {background: #2A2A2A; height: 50px; line-height: 50px; padding-left: 10px; width: 100%;}
+			.hr-fill {height: 100%; width: 100%; position: fixed; table-layout:fixed;}
+			.hr-fill .tr-nav {height: 55px;}
+			.hr-fill .tr-search {height: 30px;}
+			.hr-fill .tr-search .input-group {padding: 5px;}
+			.hr-fill .tr-search .input-group .glyphicon {top: 0;}
+			.hr-fill .tr-footer {height: 20%;}
+			.hr-playing {width: calc(100% - 10px); margin: 5px;}
+			.hr-playing .hr-song {background: #FFC90E; color: black; font-weight: bold; margin: 0px; text-align: center;}
+			.hr-playing .hr-playing-scroll {overflow: hidden;}
+			#hr-playing-content {opacity:0; position:relative;}
+			#hr-playing-section {white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+			#hr-playing-title {white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+			.hr-section {background: #2A2A2A; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 5px; margin: 5px;}
+			.hr-song {background: #2A2A2A; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 5px; margin: 5px;}
+			.star {display: inline-block; width: 16px; height: 16px; margin-right: 5px;}
+			.star-silver {background: url('img/rating-silver.png'); background-size: 16px 16px;}
+			.star-gold {background: url('img/rating-gold.png'); background-size: 16px 16px;}
+			.hr-scrollable {width: 100%; height: 100%; overflow-y: scroll;}
+			.hr-scrollable::-webkit-scrollbar { display: none; }
+			.progress {margin-bottom: 0px;}
+			#sections a {color: white; text-decoration: none; }
+			#songs a {color: white; text-decoration: none;}
+			#songs {position: relative;}
+			.hr-request {background: #FFC90E; color: black;}
+		</style>
+	</head>
+	<body>
+		<table class="hr-fill">
+			<tr>
+				<td class="tr-nav" colspan="2">
+					<div class="hr-nav">
+
+						<button type="button" class="btn btn-default" onclick="javascript:hrequest.winamp.previous(function () {})">
+							<span class="glyphicon glyphicon-step-backward"></span>
+						</button>
+
+						<button type="button" class="btn btn-default" onclick="javascript:hrequest.winamp.play(function () {})">
+							<span class="glyphicon glyphicon-play"></span>
+						</button>
+
+						<button type="button" class="btn btn-default" onclick="javascript:hrequest.winamp.pause(function () {})">
+							<span class="glyphicon glyphicon-pause"></span>
+						</button>
+
+						<button type="button" class="btn btn-default" onclick="javascript:hrequest.winamp.stop(function () {})">
+							<span class="glyphicon glyphicon-stop"></span>
+						</button>
+
+						<button type="button" class="btn btn-default" onclick="javascript:hrequest.winamp.next(function () {})">
+							<span class="glyphicon glyphicon-step-forward"></span>
+						</button>
+
+					</div>
+
+					<div class="progress" style="height: 8px;">
+						<div id="hr-song-progress" class="progress-bar" role="progressbar" style="width: 60%;"></div>
+					</div>
+				</td>
+			</tr>
+			<tr class="tr-search">
+				<td>
+					<div class="input-group input-group-sm">
+						<span class="input-group-addon glyphicon glyphicon-search" id="sizing-addon3"></span>
+						<input id="search-sections" type="text" class="form-control" placeholder="Search Sections...">
+					</div>
+				</td>
+				<td>
+					<div class="input-group input-group-sm">
+						<span class="input-group-addon glyphicon glyphicon-search" id="sizing-addon3"></span>
+						<input id="search-songs" type="text" class="form-control" placeholder="Search Songs...">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="hr-scrollable" id="sections">
+					</div>
+				</td>
+
+				<td style="overflow:hidden">
+					<div class="hr-scrollable" id="songs">
+					</div>
+				</td>
+			</tr>
+			<tr class="tr-footer">
+				<td>
+					<div class="hr-playing">
+						<div class="hr-playing-scroll">
+							<div class="hr-song" id="hr-playing-content">
+								<div id="hr-playing-section">&nbsp;</div>
+								<div id="hr-playing-title">&nbsp;</div>
+								<div class="rating ladda-button" data-style="expand-left" id="rating-playing">
+									<a href="javascript:hrequest.database.setRating(0,1,true)"><div class="star star-silver" id="playing-rating-1"></div></a>
+									<a href="javascript:hrequest.database.setRating(0,2,true)"><div class="star star-silver" id="playing-rating-2"></div></a>
+									<a href="javascript:hrequest.database.setRating(0,3,true)"><div class="star star-silver" id="playing-rating-3"></div></a>
+									<a href="javascript:hrequest.database.setRating(0,4,true)"><div class="star star-silver" id="playing-rating-4"></div></a>
+									<a href="javascript:hrequest.database.setRating(0,5,true)"><div class="star star-silver" id="playing-rating-5"></div></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>
+				<td>
+					<div class="hr-scrollable" id="requests">
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
