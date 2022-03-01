@@ -4,9 +4,11 @@ HRequest is a Winamp General Plugin that allows requesting songs through a websi
 
 If you require remote controls or wish to let friends choose what they would like to listen then this is for you.
 
-![screenshot](https://user-images.githubusercontent.com/7905726/156252519-2865455c-3a05-4757-b1db-24e012130d10.png)
+![New Dark Theme Version](https://user-images.githubusercontent.com/7905726/156252519-2865455c-3a05-4757-b1db-24e012130d10.png)
 
-This project is very old, but due to a recent request I decided to publish the source code before it gets lost forever. It was rewritten from scratch, the old version had a blue interface.
+This project is very old, but due to a recent request I decided to publish the source code before it gets lost forever. It was rewritten from scratch, the old version had a blue interface:
+
+![Old Blue Version](https://user-images.githubusercontent.com/7905726/156253624-b5b814a5-3a59-43e1-8f31-7ed48f2c87bf.png)
 
 ## Installation Instructions:
 
